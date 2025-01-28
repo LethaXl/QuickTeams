@@ -1,0 +1,609 @@
+html, body {
+    width: 100%;
+    min-height: 100vh; /* Ensures the page takes up full viewport height */
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
+    background-color: #121212 !important; /* Dark background */
+    overflow-y: auto; /* Allow vertical scrolling */
+  }
+  
+  body {
+    display: flex; /* Keep this for centering the box */
+    flex-direction: column; /* Keep this to maintain layout direction */
+    justify-content: flex-start;
+    align-items: center;
+    color: #fff;
+    background: none !important; /* Remove any conflicting background styles */
+  }
+
+.box {
+    margin-top: 25px;
+    width: 320px; 
+    height: auto; /* Adjust height as needed */
+    display: inline-block; /* Fit the box around the title */
+    position: relative; /* For positioning the pseudo-elements */
+    padding: 15px; /* Adds space around the title */
+    background-color: rgba(221, 255, 247, 0.9); /* Semi-opaque background color */
+    z-index: 2; /* Ensure this is on top of the border */
+    border-radius: 36px; /* Rounded corners for the box */
+    box-shadow: 10px 10px 42px 0 rgba(0, 0, 0, 0.75);
+    margin-bottom: 35px; /* Adjust this value as needed */
+}
+
+.hidden {
+    display: none;
+}
+
+.box:after, .box:before {
+    mix-blend-mode: multiply;
+    z-index:-1; /* Ensure borders are behind the box */
+    content: '';
+    width: calc(100% + 50px); /* Width of the borders */
+    height: calc(100% + 50px); /* Height of the borders */
+    position: absolute;
+    display: block;
+    animation: border 10s ease-in-out infinite; /* Animation for the border */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust position */
+}
+
+@keyframes border {
+    0%, 100% {
+        clip-path: polygon(0 0, calc(100% - 33.33px) calc(0% + 33.33px), 100% 100%, calc(0% + 33.33px) calc(100% - 33.33px));
+    }
+    50% {
+        clip-path: polygon(calc(0% + 33.33px) calc(0% + 33.33px), 100% 0, calc(100% - 33.33px) calc(100% - 33.33px), 0 100%);
+    }
+}
+
+.box:after {
+    animation-delay: -5s; /* Delay for the after element */
+    background-color: #93e1d8; /* Color of the border */
+    clip-path: polygon(0 0, calc(100% - 33.33px) calc(0% + 33.33px), 100% 100%, calc(0% + 33.33px) calc(100% - 33.33px));
+}
+
+.box:before {
+    background-color: #AA4465; /* Color of the border */
+    clip-path: polygon(calc(0% + 33.33px) calc(0% + 33.33px), 100% 0, calc(100% - 33.33px) calc(100% - 33.33px), 0 100%);
+}
+
+/*.box:hover:after {animation-delay: -0.1s;.box:hover:before, .box:hover:after {animation-duration: 0.2s; /* Speed up the border animation on hover */
+.title-container {
+    text-align: center;
+    margin: 20px 0;
+    position: relative; /* Ensure the title container is positioned for child elements */
+}
+
+/* Title styling */
+.title-container h1 {
+    font-family: 'Montserrat', sans-serif; /* Font style */
+    font-size: 3em; /* Size of the title */
+    color: transparent; /* Make text transparent for gradient effect */
+    background: linear-gradient(90deg, #FF0000, #AA4465); /* Gradient from red to darker red */
+    -webkit-background-clip: text; /* Clip background to text */
+    -webkit-text-fill-color: transparent; /* Ensure text is filled with gradient */
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); /* Enhanced shadow for depth */
+    margin: 0; /* Remove default margin */
+    padding: 10px 0; /* Vertical padding */
+    text-transform: none; /* Ensures text displays as is */
+}
+
+.title-container h1:hover {
+    color: #ff4d4d; /* Brighter red highlight on hover */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+}
+
+/* Overall page styling */
+body {
+    font-family: 'Poppins', sans-serif; /* Use Poppins for body text */
+    text-align: center;
+    background: linear-gradient(135deg, #d4e0f7, #f0f4fc); /* Light gradient background */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main container styling */
+.container {
+    width: 100%; /* or set a max-width */
+    max-width: 1000px; /* Set a maximum width for the content */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px; /* Add padding inside the container */
+    background-color: #333333; /* Dark background color */
+    color: #e0e0e0; /* Light text color */
+    box-sizing: border-box;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    
+}
+
+/* Styling for headings */
+h1 {
+    font-size: 4em;
+    color: #00509e;      /* Darker color for emphasis */
+    text-align: center;
+    margin-top: 50px; /* Center it vertically */
+    font-family: Arial, sans-serif; /* Change the font as needed */
+    letter-spacing: 0.03em;
+    transition: color 0.5s ease, opacity 0.5s ease; /* Smooth transition for text */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(90deg, #4A90E2, #8bc34a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: transform 0.3s ease;  
+}
+
+h1:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+#scramble-title {
+    display: inline-block; /* Necessary for the scramble effect */
+}
+
+h1, h3, label {
+    font-family: 'Raleway', sans-serif; /* Use Raleway for headings */
+}
+
+/* Styling for h3 headings */
+h3 {
+    font-size: 2em; /* Adjust the size as needed */
+    color: #ffffff; /* White font color */
+    text-align: center ; /* Align text to the left */
+    margin: 20px 0; /* Space above and below the headings */
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Black outline */
+    padding: 0; /* Remove padding */
+    border-radius: 4px; /* Slight rounding of corners */
+    transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+/* Styling for labels */
+label {
+    font-size: 1.2em; /* Size of the label */
+    color: #ffffff; /* Consistent theme color */
+    display: block; /* Make labels occupy full width */
+    margin: 15px 0 5px; /* Spacing around labels */
+    font-weight: bold; /* Emphasize labels */
+}
+
+label.section-title {
+    font-size: 2em; /* Increase the size of the titles */
+    color: #f0f0f0; /* Lighter text color */
+    font-weight: bold; /* Bold for emphasis */
+    margin-top: 20px; /* Space above the title */
+    padding-bottom: 15px; /* More space below the title */
+    border-bottom: 3px solid #777; /* Darker bottom border */
+    letter-spacing: 0.1em; /* Increase letter spacing */
+    background: linear-gradient(90deg, #777, #cdcdcd); /* Gradient background */
+    -webkit-background-clip: text; /* Clip background to text */
+    -webkit-text-fill-color: transparent; /* Ensure text is filled with gradient */
+}
+/* Section styling */
+.section {
+    margin-bottom: 20px;    /* Space between sections */
+    padding: 10px;          /* Padding within the section */
+    background-color: #424242; /* Dark background color */
+    color: #e0e0e0; /* Light text color */
+    border: 1px solid #555; /* Darker border for visual separation */
+    border-radius: 5px;     /* Rounded corners */
+    
+}
+
+/* Section styling */
+.section2 {
+    margin-bottom: 20px; 
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    gap: 15px; /* Adjust the gap between the buttons */
+}
+
+.section3cg {
+    margin-bottom: 20px; 
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    gap: 15px; /* Adjust the gap between the buttons */
+    width: 97%;
+}
+
+/* Container styling */
+#teamsContainer {
+    display: flex;
+    justify-content: space-between;
+    border: none; /* Remove outer border */
+    padding: 0;   /* Remove padding */
+    box-shadow: none; /* Remove any shadow */
+    background-color: #333333; /* Dark background color */
+    gap: 60px;
+}
+
+/* Team box styling */
+.teamBox {
+    flex: 1;
+    text-align: center;
+    margin: 0 30px;
+    padding: 20px;
+    background-color: #424242; /* Dark background color */
+    color: #000000; /* Light text color */
+    border: 1px solid #555; /* Darker border for visual separation */
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.teamBox h2 {
+    margin-top: 0;
+    color: #ffffff;
+    font-size: 21px;
+}
+
+/* Team section styling */
+#teamA, #teamB {
+    font-size: 1.2em;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #ebe9e9;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;  /* Stack the player items vertically */
+    gap: 20px; /* Add space between the items */
+}
+
+
+/* Form input and select styling */
+input[type="text"], select {
+    width: 90%;                      /* Makes fields stretch across container */
+    padding: 10px;                    /* Adds inner padding for readability */
+    margin: 10px 0;                   /* Spacing between elements */
+    border: 1px solid #ccc;           /* Light gray border */
+    border-radius: 5px;               /* Rounded corners */
+    font-size: 1em;
+    color: #333;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Additional styling for player items */
+.player-item span {
+    margin-left: 10px; /* Space between player name and "X" */
+    font-size: 18px;   /* Size of the "X" */
+}
+
+.player-item span:hover {
+    color: darkred;    /* Change color on hover for visual feedback */
+}
+
+/* Swap section styling */
+#swapSection {
+    display: none;              /* Hidden by default until activated */
+    margin-top: 20px;           /* Spacing from other elements */
+    padding: 15px;              /* Inner padding */
+    background-color: #fff;     /* White background for simplicity */
+    border: 1px solid #ccc;     /* Light gray border */
+    border-radius: 4px;         /* Slight rounded corners */
+}
+
+#swapSection h3 {
+    font-size: 1.1em;
+    color: #333;                /* Dark text for readability */
+    margin-bottom: 10px;
+}
+
+/* Team label styling */
+#swapSection .teamLabel {
+    font-size: 1.1em;
+    color: #333;                /* Standard text color */
+    font-weight: bold;          /* Make team label bold */
+    margin-bottom: 5px;
+}
+
+/* Player name styling */
+#swapSection .playerName {
+    font-weight: bold;          /* Bold player names */
+    color: #333;                /* Standard text color */
+    background-color: #f1f1f1;  /* Light gray background */
+    padding: 5px 10px;          /* Space around the name */
+    border-radius: 4px;         /* Slightly rounded corners */
+    display: inline-block;      /* Make the name inline */
+}
+
+
+/* Styling for player and goalkeeper lists */
+#playerList, #goalkeeperList {
+    margin-top: 20px; /* Increase margin to separate from headings */
+    padding: 10px;
+    background-color: #ebe9e9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px; /* Limit the width for alignment */
+    margin: 10px auto; /* Center the lists */
+    text-align: center;
+    color: #000000; 
+    font-size: 1.2em;
+}
+
+/* Styling for each player/goalkeeper item */
+.player-item, .goalkeeper-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Align items vertically */
+    padding: 5px 0;
+    border-bottom: 2px solid #cbc7c7;
+}
+
+/* Remove border on last item */
+.player-item:last-child, .goalkeeper-item:last-child {
+    border-bottom: none;
+}
+/* Adjust margin for specific items if needed */
+.goalkeeper-item span {
+    margin-left: 5px; /* Less margin if needed for goalkeeper "X" */
+}
+
+/* "Remove" button for each item */
+.player-item span, .goalkeeper-item span {
+    color: #e63946 !important; /* Ensure the "X" buttons are red on all devices */
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.player-item span:hover, .goalkeeper-item span:hover {
+    color: darkred; /* Darker red on hover */
+}
+
+button {
+    padding: 10px 20px; /* Add padding for better appearance */
+    font-size: 16px; /* Adjust font size */
+    font-family: 'Arial', sans-serif; /* Change to a better font */
+    border: none; /* Remove default border */
+    border-radius: 8px; /* More rounded corners */
+    cursor: pointer; /* Change cursor on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    
+  }
+  
+  /* Red buttons */
+  #clearPlayer,
+  #clearGoalkeeper,
+  #closeSwapButton{
+    background: #fff;
+    border-radius: .375rem;
+    border-style: solid;
+    border-width: .1rem;
+    box-sizing: border-box;
+    color: #212121;
+    display: inline-block;
+    font-family: Circular,Helvetica,sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: -.01em;
+    line-height: 1.3;
+    padding: .8rem 1.1rem;
+  }
+  
+  /* Other colored buttons (e.g., blue) */
+  #addGoalkeeper,
+  #addPlayer{
+  background: #fff;
+  border-radius: .375rem;
+  border-style: solid;
+  border-width: .1rem;
+  box-sizing: border-box;
+  color: #212121;
+  display: inline-block;
+  font-family: Circular,Helvetica,sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -.01em;
+  line-height: 1.3;
+  padding: .8rem 1.1rem;
+}
+  
+/* On hover effect */
+button:hover {
+    opacity: 0.9; /* Slightly reduce opacity on hover */
+    transform: translateY(-3px);
+  }
+  
+  
+  button:active {
+    transform: scale(0.79); /* Shrinks the button slightly */
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); 
+  }
+
+
+#clearTeam,#generateTeams,#swapStartButton{
+  background-color: rgb(200, 208, 51); /* Background color */
+  color: white; /* Text color */
+  }
+  #clearTeam,#generateTeams,#swapStartButton{
+    cursor: pointer;
+    position: relative;
+    padding: 10px 24px;
+    font-size: 18px;
+    color: rgb(193, 163, 98);
+    border: 2px solid rgb(193, 163, 98);
+    border-radius: 34px;
+    background-color: transparent;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    overflow: hidden;
+  }
+  
+  #swapStartButton::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    border-radius: inherit;
+    scale: 0;
+    z-index: -1;
+    background-color: rgb(193, 163, 98);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  
+  #swapStartButton:hover::before {
+    scale: 3;
+  }
+  
+  #swapStartButton:hover {
+    color: #212121;
+    scale: 1.1;
+    box-shadow: 0 0px 20px rgba(193, 163, 98,0.4);
+  }
+  
+  #swapStartButton:active {
+    scale: 1;
+  }
+  
+  /* On hover effect */
+  #swapStartButton:hover {
+    opacity: 0.9; /* Slightly reduce opacity on hover */
+    transform: translateY(-3px);
+  }
+  
+  
+  #swapStartButton:active {
+    transform: scale(0.79); /* Shrinks the button slightly */
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); 
+  }
+  
+  /*         toggle                  switch     */
+  
+  * {
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  *:focus {
+    outline: none;
+  }
+  
+  .toggle-button-cover {
+    display: table-cell;
+    position: relative;
+    width: 200px; /* Adjust width if necessary */
+    height: 90px; /* Adjust height if necessary */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  
+  .button-cover {
+    height: 100px;
+    margin: 10px;
+    border-radius: 4px;
+  }
+  
+  .button-cover:before {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: #d7e3e3;
+    font-size: 12px;
+    line-height: 1;
+    padding: 5px;
+  }
+  
+  .button-cover,
+  .knobs,
+  .layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .button {
+    position: relative;
+    top: 50%;
+    width: 74px; /* Width of the toggle button */
+    height: 36px; /* Height of the toggle button */
+    margin: -20px auto 0 auto;
+    overflow: hidden;
+  }
+  
+  .button.r,
+  .button.r .layer {
+    border-radius: 100px; /* Round the edges of the button */
+  }
+  
+  .button.b2 {
+    border-radius: 2px; /* Slightly rounded edges */
+  }
+  
+  .checkbox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    opacity: 0; /* Hide the checkbox */
+    cursor: pointer;
+    z-index: 3;
+  }
+  
+  .knobs {
+    z-index: 2;
+  }
+  
+  .layer {
+    width: 100%;
+    background-color: #e08282; /* Background color of the switch */
+    transition: 0.3s ease all;
+    z-index: 1;
+  }
+  
+  /* Knob styles */
+  #goalkeeperToggle .knobs:before,
+  #goalkeeperToggle .knobs:after {
+    position: absolute;
+    top: 4px; /* Positioning for knob */
+    width: 20px; /* Knob width */
+    height: 10px; /* Knob height */
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1;
+    padding: 9px 4px;
+    opacity: 1;
+    border-radius: 2px;
+    transform: scale(1);
+    transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+  }
+  
+  #goalkeeperToggle .knobs:before {
+    content: "NO"; /* Text for unchecked state */
+    left: 4px; /* Positioning for "NO" */
+    background-color: #e13226; /* Red background for NO */
+  }
+  
+  #goalkeeperToggle .knobs:after {
+    content: "YES"; /* Text for checked state */
+    right: 4px; /* Positioning for "YES" */
+    opacity: 0; /* Start as invisible */
+    transform: scale(4); /* Scale up for transition */
+    background-color: #26913f; /* Green background for YES */
+  }
+  
+  /* Transition effects */
+  #goalkeeperToggle .checkbox:checked + .knobs:before {
+    opacity: 0; /* Hide NO when checked */
+    transform: scale(4); /* Scale up for transition */
+  }
+  
+  #goalkeeperToggle .checkbox:checked + .knobs:after {
+    opacity: 1; /* Show YES when checked */
+    transform: scale(1); /* Scale back down */
+  }
+  
+  #goalkeeperToggle .checkbox:checked ~ .layer {
+    background-color: #bdf0cb; /* Background color when checked */
+}

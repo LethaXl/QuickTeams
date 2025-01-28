@@ -1,0 +1,190 @@
+body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* General styles for smaller screens */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .box {
+        width: 80%;
+        padding: 10px;
+        margin-top: 15px;
+    }
+
+    .title-container {
+        padding: 0 10px; /* Add padding to prevent overflow */
+    }
+
+    .title-container h1 {
+        font-size: 2em;
+        padding: 5px 0; /* Reduce padding on the title */
+    }
+
+    .section {
+        padding: 10px;
+    }
+
+    .teamBox {
+        margin: 10px 0;
+        padding: 10px;
+        flex: 1; /* Ensure team boxes take equal space */
+        font-size: 1.2em; /* Make the font smaller */
+        width: 40%; /* Make the width smaller */
+    }
+
+    #teamsContainer {
+        display: flex;
+        flex-direction: row; /* Ensure Team A and Team B appear side by side */
+        gap: 79px; /* Increase the space between the team boxes */
+    }
+
+    button {
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+     #clearTeam:focus,
+    #generateTeams:focus,
+    #swapStartButton:focus {
+        outline: none;
+    }
+
+    input[type="text"], select {
+        width: 80%; /* Reduce the width of input fields */
+    }
+
+    .player-item span, .goalkeeper-item span {
+        color: #e63946 !important; /* Ensure the "X" buttons are red on all devices */
+    }
+
+    #generateTeams,#addPlayer,#addGoalkeeper,#clearGoalkeeper,#clearPlayer,#swapStartButton, #clearTeam {
+        width: auto; /* Adjust the width to be automatic */
+        padding: 10px 15px; /* Adjust padding for better appearance */
+    }
+
+    .box:after, .box:before {
+        width: calc(100% + 50px); /* Increase the width of the borders */
+        height: calc(100% + 50px); /* Increase the height of the borders */
+    }
+
+    .section label.label {
+        font-size: 1em; /* Reduce font size */
+        padding: 5px 0; /* Reduce padding */
+    }
+
+    .toggle-button-cover {
+        height: 60px; /* Reduce the height of the "Will there be Goalkeepers?" section */
+        margin-top: -10px; /* Move the toggle switch up */
+    }
+
+    .button.b2 {
+        top: 18%; /* Move the toggle switch higher */
+    }
+
+    .teamBox div {
+        font-size: 0.8em; /* Make the font smaller for players inside the teams */
+    }
+
+    .teamBox h2 {
+        font-size: 1.2em; /* Make the h2 elements smaller */
+    }
+
+    .section3cg {
+        margin-top: 20px; 
+        margin-bottom: 20px; 
+        display: flex;
+        justify-content: center; /* Center the buttons horizontally */
+        gap: 15px; /* Adjust the gap between the buttons */
+        width: 92%;
+    }
+}
+
+/* Further adjustments for very small screens */
+@media (max-width: 480px) {
+    .title-container {
+        padding: 0 10px; /* Add padding to prevent overflow */
+    }
+
+    .title-container h1 {
+        font-size: 1.5em;
+        padding: 5px 0; /* Reduce padding on the title */
+    }
+
+    .section-title, h3 {
+        font-size: 1.2em;
+    }
+
+    .teamBox h2 {
+        font-size: 1.2em; /* Make the h2 elements smaller */
+    }
+
+    .player-item, .goalkeeper-item {
+        font-size: 1em;
+    }
+
+    .player-item span, .goalkeeper-item span {
+        color: #e63946 !important; /* Ensure the "X" buttons are red on all devices */
+    }
+
+    input[type="text"], select {
+        width: 80%; /* Reduce the width of input fields */
+    }
+
+    #generateTeams, #clearTeam {
+        width: auto; /* Adjust the width to be automatic */
+        padding: 10px 15px; /* Adjust padding for better appearance */
+    }
+
+    .box:after, .box:before {
+        width: calc(100% + 50px); /* Increase the width of the borders */
+        height: calc(100% + 50px); /* Increase the height of the borders */
+    }
+
+    .section label.label {
+        font-size: 1em; /* Reduce font size */
+        padding: 5px 0; /* Reduce padding */
+    }
+
+    .toggle-button-cover {
+        height: 50px; /* Further reduce the height of the "Will there be Goalkeepers?" section */
+        margin-top: -10px; /* Move the toggle switch up */
+    }
+
+    .button.b2 {
+        top: 18%; /* Move the toggle switch higher */
+    }
+
+    #teamsContainer {
+        display: flex;
+        flex-direction: row; /* Ensure Team A and Team B appear side by side */
+        gap: 79px; /* Increase the space between the team boxes */
+    }
+
+    .teamBox {
+        flex: 1; /* Ensure team boxes take equal space */
+        padding: 5px; /* Reduce padding for better fit */
+        font-size: 1.2em; /* Make the font smaller */
+        width: 40%; /* Make the width smaller */
+    }
+
+    .teamBox div {
+        font-size: 0.8em; /* Make the font smaller for players inside the teams */
+    }
+    .section3cg {
+        margin-top: 20px; 
+        margin-bottom: 20px; 
+        display: flex;
+        justify-content: center; /* Center the buttons horizontally */
+        gap: 15px; /* Adjust the gap between the buttons */
+        width: 92%;
+    }
+}

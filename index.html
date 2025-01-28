@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickTeams - Football Team Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylebutton.css">
+    <link rel="stylesheet" href="media-queries.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&family=Raleway:wght@700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+        
+    <div class="container">
+        <div class="box">
+            <div class="title-container">
+                <h1>
+                    <span id="scramble-title">QuickTeams</span>
+                </h1>
+            </div>
+        </div>
+         <!-- Goalkeeper Selection Section -->
+         <div class="section">
+            <label class="label" for="goalkeeperToggle">Will there be Goalkeepers?</label>
+            <div class="toggle-button-cover">
+                <div class="button-cover">
+                    <div class="button b2" id="goalkeeperToggle">
+                        <input type="checkbox" class="checkbox" onclick="toggleGoalkeeperInputs()" />
+                        <div class="knobs">
+                        </div>
+                        <div class="layer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Goalkeeper Input Section -->
+    <div id="goalkeeperInputs" class="section" style="display: none;">
+        <label class="section-title">Goalkeepers:</label>
+    <input type="text" id="goalkeeperName" placeholder="Enter goalkeeper name">
+    <div class="section2">
+    <button id="addGoalkeeper" onclick="addGoalkeepers()">Add Goalkeeper</button>
+    <button id="clearGoalkeeper" onclick="clearGoalkeepers()">Clear Goalkeepers</button>
+</div>
+</div>
+<div id="goalkeeperDisplaySection" class="section3" style="display: none;">
+    <div id="goalkeeperList"></div>
+</div>
+<!-- Outfield Players Section -->
+    <div class="section">
+        <label class="section-title">Players:</label>
+        <input type="text" id="playerName" placeholder="Enter player names">
+    <div class="section2">
+        <button id="addPlayer" onclick="addPlayer()">Add Player</button>
+        <button id="clearPlayer" onclick="clearPlayers()">Clear Players</button>
+    </div>
+    </div>
+
+        <div class="section3">
+            <div id="playerList"></div>
+        </div>
+                <!-- Team Generation and Clear Section -->
+                <div class="section3cg">
+                    <button id="generateTeams" onclick="generateTeams()">Generate Teams</button>
+                    <button id="clearTeam" onclick="clearTeams()">Clear Teams</button>
+                </div>
+                
+                <!-- Teams Display Section -->
+        <div id="teamsContainer" class="section">
+            <div class="teamBox">
+                <h2>Team A</h2>
+                <div id="teamA"></div>
+            </div>
+            <div class="teamBox">
+                <h2>Team B</h2>
+                <div id="teamB"></div>
+            </div>
+        </div>
+                
+               <!-- Swap Section -->
+        <div class="section2">
+            <button id="swapStartButton">Swap</button>
+            <div id="swapSection" style="display: none; margin-top: 20px;">
+                <h3>Selected for Swap:</h3>
+                <div><strong>Team A:</strong> <span id="selectedPlayerA">None</span></div>
+                <div><strong>Team B:</strong> <span id="selectedPlayerB">None</span></div>
+                <button id="swapButton" style="display: none;">Swap Players</button>
+                <button id="closeSwapButton">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+/* Arrow Animation */
+.arrowR span, .arrowL span {
+display: block;
+width: 5px;
+height: 5px;
+border-bottom: 5px solid #fff; /* Change to white */
+border-right: 5px solid #fff; /* Change to white */
+transform: rotate(45deg);
+margin: -10px;
+}
+/* General Arrow Styles */
+.arrowR, .arrowL {
+position: absolute;
+top: 50%; /* Center vertically */
+transform: translateY(-50%); /* Keep vertical centering */
+right: -35px !important;
+}
+
+
+
+/* Left Arrow (Team A) */
+#teamA .arrowR {
+right: 100px !important; /* Position arrowR close to the right side of Team A */
+transform: rotate(135deg); /* Rotate to point left */
+}
+
+/* Right Arrow (Team B) */
+#teamB .arrowL {
+left: 10px; /* Position arrowL close to the left side of Team B */
+transform:rotate(315deg); /* Rotate to point right */
+}
+
+/* Keyframes for Arrow Animations */
+@keyframes animateR {
+0% {
+    opacity: 0;
+    transform: rotate(135deg) translate(-15px, -15px);
+}
+50% {
+    opacity: 1;
+}
+100% {
+    opacity: 0;
+    transform: rotate(135deg) translate(21px, 21px);
+}
+}
+
+@keyframes animateL {
+0% {
+    opacity: 0;
+    transform: rotate(315deg) translate(-15px, -15px);
+}
+50% {
+    opacity: 1;
+}
+100% {
+    opacity: 0;
+    transform: rotate(315deg) translate(21px, 21px);
+}
+}
+
+/* Apply animations */
+.arrowR span {
+animation: animateR 2s infinite;
+}
+
+.arrowR span:nth-child(2) {
+animation-delay: -0.2s;
+}
+
+.arrowR span:nth-child(3) {
+animation-delay: -0.4s;
+}
+
+.arrowL span {
+animation: animateL 2s infinite;
+}
+
+.arrowL span:nth-child(2) {
+animation-delay: -0.2s;
+}
+
+.arrowL span:nth-child(3) {
+animation-delay: -0.4s;
+}
+
+#clearTeam:focus,
+#generateTeams:focus,
+#swapStartButton:focus {
+    outline: none; /* Removes the outline after clicking */
+}
+button {
+    touch-action: manipulation; /* Prevent sticky focus issues on mobile */
+}
+
+#generateTeams::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  border-radius: inherit;
+  scale: 0;
+  z-index: -1;
+  background-color: rgb(193, 163, 98);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+#generateTeams:hover::before {
+  scale: 4;
+}
+
+#generateTeams:hover {
+  color: #212121;
+  scale: 1.1;
+  box-shadow: 0 0px 20px rgba(193, 163, 98,0.4);
+}
+
+#generateTeams:active {
+  scale: 1;
+}
+
+/* On hover effect */
+#generateTeams:hover {
+  opacity: 0.9; /* Slightly reduce opacity on hover */
+  transform: translateY(-3px);
+}
+
+#generateTeams:active {
+  transform: scale(0.79); /* Shrinks the button slightly */
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); 
+}
+
+#clearTeam::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  border-radius: inherit;
+  scale: 0;
+  z-index: -1;
+  background-color: rgb(193, 163, 98);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+#clearTeam:hover::before {
+  scale: 3.2;
+}
+
+#clearTeam:hover {
+  color: #212121;
+  scale: 1.1;
+  box-shadow: 0 0px 20px rgba(193, 163, 98,0.4);
+}
+
+#clearTeam:active {
+  scale: 1;
+  background-color: initial; /* Reset background color */
+  transform: none; /* Reset any transformations */
+}
+
+/* On hover effect */
+#clearTeam:hover {
+  opacity: 0.9; /* Slightly reduce opacity on hover */
+  transform: translateY(-3px);
+}
+
+#clearTeam:active {
+  transform: scale(0.79); /* Shrinks the button slightly */
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); 
+}
